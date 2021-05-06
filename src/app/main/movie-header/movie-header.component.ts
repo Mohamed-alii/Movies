@@ -1,32 +1,42 @@
+import { MoviesService } from './../../services/movies.service';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+
 @Component({
   selector: 'movie-header',
   templateUrl: './movie-header.component.html',
   styleUrls: ['./movie-header.component.scss']
 })
 export class MovieHeaderComponent {
-
-  constructor() { }
-
-  customOptions: OwlOptions ={
-    stagePadding: 50,
-    loop: true,
-    touchDrag: false,
-    margin: 10,
-    nav: true,
+  popularMovies
+  imgPrefix: string = "https://image.tmdb.org/t/p/w500";
+  constructor(private Http: MoviesService) {
+    this.Http.getPopularMovies().subscribe(data => {
+      this.popularMovies = data
     
-    navText: ['next', 'pev'],
-    dots: false,
+    })
+  }
+
+  customOptions: OwlOptions = {
+    stagePadding: 100,
+    loop: true,
+    rewind : true,
+    touchDrag: true,
+    autoplay:true,
+    margin: 30,
+    nav: false,
+    navText: ['<', '>'],
+    dots: true,
     responsive: {
       0: {
-        items: 1
+        items: 1,
+        dots:false,
       },
       600: {
         items: 3
       },
       1000: {
-        items: 5
+        items: 3
       }
     }
   }

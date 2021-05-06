@@ -1,4 +1,5 @@
 .sidenav-container {
+   z-index: 100 !important;
 
 
 }
@@ -9,6 +10,7 @@
 }
 
 .sidenav .mat-toolbar {
+
   background-color: #131720;
 }
 
@@ -30,6 +32,9 @@
   outline: none;
   color: #fff;
 }
+.searchShape::placeholder{
+  color: white;
+}
 
 .colorBule{
 color: #2f80ed !important;
@@ -41,12 +46,13 @@ color: #2f80ed !important;
 
 @media (min-width: 960px) {
   .sidenav {
- 
+
     display: none;
   }
 }
 @media (max-width: 960px) {
   .mainNav{
+
 display: none !important;
   }
 }

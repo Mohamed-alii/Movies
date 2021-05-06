@@ -1,13 +1,14 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container py-4">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-        <span class="colorBule m-3 mb-5">Movies</span>
     <mat-nav-list>
-      <form class="text-white w-100">
+      <span class="colorBule p-5 mb-5">Movies</span>
+
+      <form class="text-white w-100 mt-2">
         <input class="searchShape text-white w-100" placeholder="I'm looking for...">
         <i class="fas fa-search colorBule" style="margin-left: -30px;"></i>
       </form>
-
+      
       <div class="container d-flex flex-column">
         
         <li class="navbar-nav">
@@ -31,7 +32,7 @@
       <button class="" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async"><i class="fas fa-sliders-h colorBule "></i>
       </button>
-      
+    
       <div class="mainNav container-fluid d-flex align-items-baseline justify-content-around ">
         <span class="colorBule">Movies</span>
         
