@@ -1,0 +1,216 @@
+@import '../../../styles/partials/var';
+
+.movies-view
+{
+
+    background-color: $primary-color;
+
+    .catlog-nav
+    {
+        border-radius: 16px;
+        background-color: $lighter-primary-color;
+        color: $off-white;
+        overflow: hidden;
+
+        .catalog-select
+        {
+            padding-right: 2rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none; 
+            background-color: $lighter-primary-color;
+            color: $off-white;
+            border: none;
+            transition: color 0.5s;
+
+            &:focus-visible
+            {
+                outline: none;
+            }
+            &:hover
+            {
+                color:$lighter-blue ;
+            }
+
+            option
+            {
+                color: $off-white;
+                &:hover
+                {
+                    box-shadow: 0 0 10px 100px #1882A8 inset;
+                    color:$lighter-blue !important;
+                    background-color: transparent !important;
+                }
+                
+            }
+
+        }
+
+        .slider-radio
+        {
+            .toggle_radio{
+                position: relative;
+                background: $primary-color;
+                overflow: hidden;
+                -webkit-border-radius: 16px;
+                -moz-border-radius: 16px;
+                border-radius: 16px;
+                position: relative;
+              }
+              .toggle_radio {
+                display: flex;
+                justify-content: space-evenly;
+              }
+              .toggle_radio input[type=radio]{
+                display: none;
+                /*position: fixed;*/
+              }
+              .toggle_radio label{
+                color: rgba(255,255,255,.9);
+                z-index: 0;
+                display: block;
+                padding: 0 0.5rem;
+                margin: 1px;
+                -webkit-border-radius: 16px;
+                -moz-border-radius: 16px;
+                border-radius: 16px;
+                cursor: pointer;
+                z-index: 1;
+                text-align: center;
+                transition: color 0.5s ease;
+                &:hover
+                {
+                  color: $lighter-blue;
+                }
+              }
+              .toggle_option_slider{
+                /*display: none;*/
+                /*background: red;*/
+                width: 31%;
+                height: 80%;
+                position: absolute;
+                top: 10%;
+                -webkit-border-radius: 16px;
+                -moz-border-radius: 16px;
+                border-radius: 16px;
+                -webkit-transition: all .4s ease;
+                -moz-transition: all .4s ease;
+                -o-transition: all .4s ease;
+                -ms-transition: all .4s ease;
+                transition: all .4s ease;
+              }
+              // when checked we need to make the text appear so we give higher z index 
+              #first_toggle:checked ~ .featured {
+                color: $lighter-blue;
+                position: relative;
+                z-index: 5;
+              }
+              #second_toggle:checked ~ .popular{
+                color: $lighter-blue;
+                position: relative;
+                z-index: 5;
+              }
+              #third_toggle:checked ~ .newest{
+                color: $lighter-blue;
+                position: relative;
+                z-index: 5;
+              }
+              // when checked we need to move the slider to the checked label 
+              #first_toggle:checked ~ .toggle_option_slider{
+                background: $lighter-primary-color;
+                left: 4%;
+              }
+              #second_toggle:checked ~ .toggle_option_slider{
+                background: $lighter-primary-color;
+                left: 36%;
+              }
+              #third_toggle:checked ~ .toggle_option_slider{
+                background: $lighter-primary-color;
+                left: 67%;
+              }
+
+        }
+    }
+
+    // movie content style
+        
+    .movies-view-content
+    {
+
+      &:hover .movie-img-overlay
+      {
+        // visibility: visible;
+      }
+
+      .movie
+      {
+          cursor: pointer;
+
+          .movie-img
+          {
+            filter: blur(0.11rem);
+          }
+
+          .movie-img-overlay
+          {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            margin: 0 15px 20px;
+            visibility: visible;
+            z-index: 5;
+
+            .favorite-icon-wrapper
+            {
+              background-color: $lighter-primary-color;
+              color: $light-blue;
+              position: absolute;
+              top: 4%;
+              left: 4%;
+              border-radius: 10px;
+              font-size: 0.8rem;
+              transition: color 0.5s ease;
+
+              &:hover
+              {
+                color: $secondary-color;
+              }
+
+            }
+
+            .rate-icon-wrapper
+            {
+              background-color: $lighter-primary-color;
+              color: $light-blue;
+              position: absolute;
+              top: 4%;
+              right: 4%;
+              border-radius: 10px;
+              font-size: 0.8rem;
+
+            }
+
+            .movie-play-btn
+            {
+              font-size: 2.5rem;
+              font-weight: 200;
+            }
+
+          }
+
+          .movie-img
+            {
+              border-radius: 16px;
+            }
+
+      }
+
+    }
+
+    
+          
+}
+
