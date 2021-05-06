@@ -1,0 +1,10 @@
+<owl-carousel-o [options]="customOptions">
+    <ng-template class="" carouselSlide *ngFor="let movie of popularMovies.results">
+        <figure class="  itemShape rounded ">
+
+            <img class="photoShape rounded" [src]="imgPrefix+movie.poster_path" alt="not">
+
+        </figure>
+
+    </ng-template>
+</owl-carousel-o>

@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MoviesViewComponent } from './movies-view/movies-view.component';
-
+import { MovieHeaderComponent } from './movie-header/movie-header.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
   declarations: [
-    MoviesViewComponent
+    MoviesViewComponent,
+    MovieHeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CarouselModule,
   ],
   exports:[
-    MoviesViewComponent
+    MoviesViewComponent,
+    MovieHeaderComponent
   ]
 })
 export class MainModule { }

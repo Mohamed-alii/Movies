@@ -1,0 +1,58 @@
+.sidenav-container {
+   z-index: 100 !important;
+
+
+}
+
+.sidenav {
+  width: 200px;
+  background-color: #131720;
+}
+
+.sidenav .mat-toolbar {
+
+  background-color: #131720;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  background-color: #131720;
+  top: 0;
+  z-index: 1;
+}
+
+.searchShape {
+  width: 250px;
+  height: 40px;
+  border-radius: 16px;
+  background-color: #151f30;
+  border: none;
+  padding: 0 60px 0 20px;
+  font-size: 14px;
+  outline: none;
+  color: #fff;
+}
+.searchShape::placeholder{
+  color: white;
+}
+
+.colorBule{
+color: #2f80ed !important;
+}
+
+
+
+
+
+@media (min-width: 960px) {
+  .sidenav {
+
+    display: none;
+  }
+}
+@media (max-width: 960px) {
+  .mainNav{
+
+display: none !important;
+  }
+}
