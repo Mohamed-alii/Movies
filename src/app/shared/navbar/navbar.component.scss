@@ -1,7 +1,7 @@
+@import'../../../styles/partials/var';
+
 .sidenav-container {
    z-index: 100 !important;
-
-
 }
 
 .sidenav {
@@ -40,16 +40,26 @@
 color: #2f80ed !important;
 }
 
-
-
+.userImg{
+width: 45px;
+height: 45px;
+list-style-type:none;
+border-radius: 100%
+}
+.userBox{
+  color: $primary-color ;
+background-color: $light-blue;
+width: 140px;
+height: 45px;
+}
 
 
 @media (min-width: 960px) {
   .sidenav {
-
     display: none;
   }
 }
+
 @media (max-width: 960px) {
   .mainNav{
 

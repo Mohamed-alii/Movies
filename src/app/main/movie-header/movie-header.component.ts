@@ -20,7 +20,10 @@ export class MovieHeaderComponent {
   customOptions: OwlOptions = {
     stagePadding: 100,
     loop: true,
-    rewind : true,
+    slideBy:3,
+    autoplayTimeout:4000,
+    rewind: true,
+    pullDrag : true,
     touchDrag: true,
     autoplay:true,
     margin: 30,
