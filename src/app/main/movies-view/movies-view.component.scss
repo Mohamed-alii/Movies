@@ -56,6 +56,7 @@
                 -moz-border-radius: 16px;
                 border-radius: 16px;
                 position: relative;
+
               }
               .toggle_radio {
                 display: flex;
@@ -69,7 +70,7 @@
                 color: rgba(255,255,255,.9);
                 z-index: 0;
                 display: block;
-                padding: 0 0.5rem;
+                padding: 0 0.5rem 0;
                 margin: 1px;
                 -webkit-border-radius: 16px;
                 -moz-border-radius: 16px;
@@ -100,7 +101,7 @@
                 transition: all .4s ease;
               }
               // when checked we need to make the text appear so we give higher z index 
-              #first_toggle:checked ~ .featured {
+              #first_toggle:checked ~ .now-playing {
                 color: $lighter-blue;
                 position: relative;
                 z-index: 5;
@@ -110,7 +111,7 @@
                 position: relative;
                 z-index: 5;
               }
-              #third_toggle:checked ~ .newest{
+              #third_toggle:checked ~ .up-coming{
                 color: $lighter-blue;
                 position: relative;
                 z-index: 5;
@@ -118,15 +119,18 @@
               // when checked we need to move the slider to the checked label 
               #first_toggle:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
-                left: 4%;
+                left: 2%;
+                width: 42%;
               }
               #second_toggle:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
-                left: 36%;
+                left: 44%;
+                width: 30%;
               }
               #third_toggle:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
-                left: 67%;
+                left: 74%;
+                width: 24%;
               }
 
         }
@@ -237,7 +241,7 @@
             .movie-play-btn
             {
               font-size: 1.7rem;
-              font-weight: 200;
+              color: whitesmoke;
               opacity: 0;
               -webkit-transition: all 0.5s ease;
               -moz-transition: all 0.4s ease;
