@@ -1,8 +1,8 @@
-<section class="movies-view py-5">
-    <div class="container">
+<section class="movies-view py-5 position-relative">
+    <div class="container ">
 
         <!-- catalog navbar START-->
-        <div class="catlog-nav py-3 px-4 ">
+        <div #catlogNav class="catlog-nav py-3 px-4 ">
             <div class="row">
 
                 <div class="select-wrapper d-flex col-md-4 ">
@@ -55,7 +55,7 @@
         <!-- catalog navbar END -->
 
         <!-- movies view content START-->
-        <div class="movies-view-content mt-5">
+        <div #movieViewSection class="movies-view-content mt-5">
             <div class="row">
 
                 <div class="movie col-md-2" *ngFor="let movie of NowPlayingMovies">
@@ -84,6 +84,10 @@
             </div>
         </div>
         <!-- movies view content END-->
+
+        <div class="test">
+
+        </div>
 
     </div>
 </section>
