@@ -13,16 +13,14 @@ export class MovieHeaderComponent {
   constructor(private Http: MoviesService) {
     this.Http.getPopularMovies().subscribe(data => {
       this.popularMovies = data
+    
     })
   }
 
   customOptions: OwlOptions = {
     stagePadding: 100,
     loop: true,
-    slideBy:4,
-    autoplayTimeout:5000,
-    rewind: true,
-    pullDrag : true,
+    rewind : true,
     touchDrag: true,
     autoplay:true,
     margin: 30,
@@ -38,9 +36,11 @@ export class MovieHeaderComponent {
         items: 3
       },
       1000: {
-        items: 4
+        items: 3
       }
     }
   }
+
+
 
 }

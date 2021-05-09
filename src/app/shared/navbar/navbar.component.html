@@ -1,16 +1,16 @@
-<mat-sidenav-container class="sidenav-container " >
+<mat-sidenav-container class="sidenav-container py-4">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-nav-list>
-      <h3 class="colorBule p-5 mb-5">Movies</h3>
+      <span class="colorBule p-5 mb-5">Movies</span>
 
       <form class="text-white w-100 mt-2">
         <input class="searchShape text-white w-100" placeholder="I'm looking for...">
         <i class="fas fa-search colorBule" style="margin-left: -30px;"></i>
       </form>
-
+      
       <div class="container d-flex flex-column">
-
+        
         <li class="navbar-nav">
           <a class="nav-link text-white" href="#">Home</a>
         </li>
@@ -27,41 +27,32 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-
+    
     <mat-toolbar color="primary">
-      
-      <div class=" container-fluid d-flex align-items-baseline justify-content-around py-4 ">
-        <button class="" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async"><i class="fas fa-sliders-h colorBule "></i>
-        </button>
-        <h3 class="colorBule">Movies</h3>
-
-        <li class="navbar-nav mainNav">
+      <button class="" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"><i class="fas fa-sliders-h colorBule "></i>
+      </button>
+    
+      <div class="mainNav container-fluid d-flex align-items-baseline justify-content-around ">
+        <span class="colorBule">Movies</span>
+        
+        <li class="navbar-nav">
           <a class="nav-link text-white" href="#">Home</a>
         </li>
-        <li class="navbar-nav mainNav ">
+        <li class="navbar-nav ">
           <a class="nav-link text-white" href="#">categories</a>
         </li>
 
-        <form class="text-white mainNav">
+        <form class="text-white">
           <input class="searchShape text-white" placeholder="I'm looking for...">
           <i class="fas fa-search colorBule" style="margin-left: -30px;"></i>
         </form>
 
-        <li class="navbar-nav mainNav">
+        <li class="navbar-nav ">
           <a class="nav-link text-white" href="#">Sign in
             <i class="fas fa-sign-in-alt colorBule"></i>
           </a>
         </li>
-
-        <div class="userBox rounded-pill d-flex align-items-baseline">
-          <li class="userImg" style="margin-right: 5px;">
-            <img class="userImg w-100" src="../../../assets/images/big.jpg" alt="">
-          </li>
-          <h6>User Name</h6>
-        </div>
-
-
       </div>
 
 
