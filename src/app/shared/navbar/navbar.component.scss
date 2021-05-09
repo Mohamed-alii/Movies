@@ -1,7 +1,7 @@
-@import'../../../styles/partials/var';
+@import "../../../styles/partials/var";
 
 .sidenav-container {
-   z-index: 100 !important;
+  z-index: 100 !important;
 }
 
 .sidenav {
@@ -10,7 +10,6 @@
 }
 
 .sidenav .mat-toolbar {
-
   background-color: #131720;
 }
 
@@ -32,37 +31,44 @@
   outline: none;
   color: #fff;
 }
-.searchShape::placeholder{
+.searchShape::placeholder {
   color: white;
 }
 
-.colorBule{
-color: #2f80ed !important;
+.colorBule {
+  color: #2f80ed !important;
 }
 
-.userImg{
-width: 45px;
-height: 45px;
-list-style-type:none;
-border-radius: 100%
+.userImg {
+  width: 45px;
+  height: 45px;
+  list-style-type: none;
+  border-radius: 100%;
 }
-.userBox{
-  color: $primary-color ;
-background-color: $light-blue;
-width: 140px;
-height: 45px;
+.userBox {
+  color: $primary-color;
+  background-color: $light-blue;
+  width: 140px;
+  height: 45px;
 }
 
-
-@media (min-width: 960px) {
+// مش هيتنفذ غير علي الي اكبر من 768
+@media (min-width: 768px) {
   .sidenav {
     display: none;
   }
 }
-
-@media (max-width: 960px) {
-  .mainNav{
-
-display: none !important;
+// مش هيتنفذ غير علي الي اصغر من 768
+@media (max-width: 767px) {
+  .sidenav-container {
+    width: 100%;
+    position: fixed;
   }
+
+  .mainNav {
+    display: none !important;
+  }
+
+
+
 }

@@ -1,16 +1,18 @@
-<owl-carousel-o [options]="customOptions">
+<owl-carousel-o  [options]="customOptions" #owlCar>
+
     <ng-template class="" carouselSlide *ngFor="let movie of popularMovies.results">
-        <figure class=" rounded mb-0 " style="cursor: pointer;">
+        <figure class=" mb-0 " style="cursor: pointer;">
             <div class="itemOverlay d-flex  flex-column justify-content-between">
                 <div class="d-flex justify-content-between align-items-baseline w-100">
-                    <i class="far fa-bookmark p-3 rounded m-3" style="background-color: #151f30;"></i>
+                    <i class="far fa-bookmark p-2 rounded m-3" style="background-color: #151f30;"></i>
                     <span class="icons m-3 p-1"><i class="far fa-star m-2"></i>{{movie.vote_average}}</span>
                 </div>
-                
             </div>
             <img class="photoShape rounded img-fluid" [src]="imgPrefix+movie.poster_path" alt="not">
-
         </figure>
-
     </ng-template>
+    
 </owl-carousel-o>
+
+<button type="button" class="sliderButtons" (click)="owlCar.prev()"></button>
+<button type="button" class="sliderButtonsNext" (click)="owlCar.next()"></button>
