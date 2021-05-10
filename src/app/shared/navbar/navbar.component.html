@@ -53,11 +53,22 @@
           </a>
         </li>
 
-        <div class="userBox rounded-pill d-flex align-items-baseline">
-          <li class="userImg" style="margin-right: 5px;">
-            <img class="userImg w-100" src="../../../assets/images/big.jpg" alt="">
-          </li>
-          <h6>User Name</h6>
+        <div>
+          <div class="userBox rounded-pill d-flex align-items-baseline">
+            <li class="userImg" style="margin-right: 4px;">
+              <img class="userImg w-100" src="../../../assets/big.jpg" alt="">
+            </li>
+            <h6 (click)="showUserOption()" style="cursor: pointer;">User Name <i class="fas fa-caret-down"
+                *ngIf="!userOptionClicked"> </i><i class="fas fa-caret-up text-white" *ngIf="userOptionClicked"></i>
+            </h6>
+          </div>
+          <div class="useroption " 
+           *ngIf="userOptionClicked"
+           [ngClass]="{'animate__animated animate__fadeInDown': userOptionClicked}"
+          >
+            <h6 class="pb-3 b" >profile <i class="fas fa-user-circle"></i></h6>
+            <h6>Logout <i class="fas fa-sign-out-alt"></i></h6>
+          </div>
         </div>
 
 

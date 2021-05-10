@@ -11,7 +11,7 @@ export class MovieHeaderComponent {
   popularMovies
   imgPrefix: string = "https://image.tmdb.org/t/p/w500";
   constructor(private Http: MoviesService) {
-    this.Http.getPopularMovies().subscribe(data => {
+    this.Http.getPopularMovies(1).subscribe(data => {
       this.popularMovies = data
     
     })
@@ -23,8 +23,6 @@ export class MovieHeaderComponent {
     touchDrag: true,
     slideBy: 4,
     autoplayTimeout: 5000,
-    rewind: true,
-    pullDrag: true,
     autoplay:true,
     margin: 30,
     nav: false,

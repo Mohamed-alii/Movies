@@ -47,9 +47,29 @@
 .userBox {
   color: $primary-color;
   background-color: $light-blue;
-  width: 140px;
+  width: 145px;
   height: 45px;
 }
+
+.useroption {
+  visibility: visible;
+  margin-top: 3px;
+  position: fixed;
+  width: 150px;
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  background-color: $light-blue;
+  color: $primary-color;
+
+}
+//.useroption .b{
+// border-bottom: 2px solid $primary-color; 
+//}
+
+
 
 // مش هيتنفذ غير علي الي اكبر من 768
 @media (min-width: 768px) {
@@ -67,7 +87,4 @@
   .mainNav {
     display: none !important;
   }
-
-
-
 }
