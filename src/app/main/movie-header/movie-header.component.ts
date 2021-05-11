@@ -11,10 +11,12 @@ export class MovieHeaderComponent {
   popularMovies
   imgPrefix: string = "https://image.tmdb.org/t/p/w500";
   constructor(private Http: MoviesService) {
-    this.Http.getPopularMovies(1).subscribe(data => {
-      this.popularMovies = data
     
-    })
+    setTimeout(() => {
+      this.Http.getPopularMovies(1).subscribe(data => {
+        this.popularMovies = data
+      }) 
+    },4000)
   }
 
   customOptions: OwlOptions = {

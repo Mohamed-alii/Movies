@@ -29,7 +29,7 @@
 
     <mat-toolbar color="primary">
 
-      <div class=" container-fluid d-flex align-items-baseline justify-content-around py-4 ">
+      <div class=" container-fluid d-flex align-items-baseline justify-content-around py-3 py-md-4 ">
         <button class="" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
           *ngIf="isHandset$ | async"><i class="fas fa-sliders-h colorBule "></i>
         </button>
@@ -66,7 +66,7 @@
            *ngIf="userOptionClicked"
            [ngClass]="{'animate__animated animate__fadeInDown': userOptionClicked}"
           >
-            <h6 class="pb-3 b" >profile <i class="fas fa-user-circle"></i></h6>
+            <h6 class="pb-2 b" >profile <i class="fas fa-user-circle"></i></h6>
             <h6>Logout <i class="fas fa-sign-out-alt"></i></h6>
           </div>
         </div>
