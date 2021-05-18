@@ -1,8 +1,8 @@
-<section class="movies-view py-5">
-    <div class="container">
+<section class="movies-view py-5 position-relative">
+    <div class="container ">
 
         <!-- catalog navbar START-->
-        <div class="catlog-nav py-3 px-4 ">
+        <div #catlogNav class="catlog-nav py-3 px-4 ">
             <div class="row">
 
                 <div class="select-wrapper d-flex col-md-4 ">
@@ -34,12 +34,12 @@
                     <div class="wrapper d-flex ">
 
                         <div class="toggle_radio py-2 px-0">
-                            <input type="radio" checked class="toggle_option" id="first_toggle" name="toggle_option">
-                            <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option">
-                            <input type="radio" class="toggle_option" id="third_toggle" name="toggle_option">
-                            <label class="now-playing" for="first_toggle" ><p class="m-0">Now Playing</p></label>
-                            <label class="popular" for="second_toggle"><p class="m-0"> Popular</p></label>
-                            <label class="up-coming" for="third_toggle"><p class="m-0">up Coming</p></label>
+                            <input type="radio" checked class="toggle_option" id="now-playing" name="catalog" ngModel>
+                            <input type="radio" class="toggle_option" id="popular" name="catalog" ngModel>
+                            <input type="radio" class="toggle_option" id="up-coming" name="catalog" ngModel>
+                            <label class="now-playing" for="now-playing" ><p class="m-0">Now Playing</p></label>
+                            <label class="popular" for="popular"><p class="m-0"> Popular</p></label>
+                            <label class="up-coming" for="up-coming"><p class="m-0">up Coming</p></label>
 
                             <div class="toggle_option_slider"></div>
 
@@ -55,10 +55,10 @@
         <!-- catalog navbar END -->
 
         <!-- movies view content START-->
-        <div class="movies-view-content mt-5">
+        <div #movieViewSection class="movies-view-content mt-5">
             <div class="row">
 
-                <div class="movie col-md-2" *ngFor="let movie of NowPlayingMovies">
+                <div class="movie col-md-2" *ngFor="let movie of selectedCategory">
 
                     <div class="movie-img-overlay d-flex justify-content-center align-items-center" >
 
@@ -84,6 +84,10 @@
             </div>
         </div>
         <!-- movies view content END-->
+
+        <div class="test">
+
+        </div>
 
     </div>
 </section>
