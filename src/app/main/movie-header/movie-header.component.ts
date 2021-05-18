@@ -14,6 +14,7 @@ export class MovieHeaderComponent {
     
     setTimeout(() => {
       this.Http.getPopularMovies(1).subscribe(data => {
+        console.log(data)
         this.popularMovies = data
       }) 
     },4000)

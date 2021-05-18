@@ -10,6 +10,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavbarComponent {
   userOptionClicked = false;
+  cateOptionClicked = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -21,11 +22,17 @@ export class NavbarComponent {
   showUserOption() {
     this.userOptionClicked = !this.userOptionClicked
   }
+  showCateOption() {
+    this.cateOptionClicked = !this.cateOptionClicked
+  }
+
+
 
   @HostListener("window:scroll")
   hide() {
     if (window.scrollY > 10) {
-  this.userOptionClicked=false
+      this.userOptionClicked = false
+      this.cateOptionClicked=false
 }
   }
 

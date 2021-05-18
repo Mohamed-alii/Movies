@@ -2,6 +2,7 @@
 
 .sidenav-container {
   z-index: 100 !important;
+  color: $faint-white;
 }
 
 .sidenav {
@@ -28,10 +29,9 @@
   padding: 0 60px 0 20px;
   font-size: 14px;
   outline: none;
-  color: #fff;
 }
 .searchShape::placeholder {
-  color: white;
+  color: $faint-white;
 }
 
 .colorBule {
@@ -47,12 +47,11 @@
 .userBox {
   color: $primary-color;
   background-color: $light-blue;
-  width: 145px;
+  font-weight: 450;
   height: 45px;
 }
 
 .useroption {
-  visibility: visible;
   margin-top: 3px;
   position: fixed;
   width: 150px;
@@ -61,15 +60,23 @@
   padding: 1rem;
   border-radius: 10px;
   text-align: center;
-  background-color: $light-blue;
-  color: $primary-color;
-
+  background-color: $lighter-primary-color;
+  color: $faint-white;
 }
-//.useroption .b{
-// border-bottom: 2px solid $primary-color; 
-//}
-
-
+a {
+  color: $faint-white;
+}
+h3 {
+  font-family: $titles-font;
+}
+a:hover {
+  transition: all 0.6s ease;
+  color: $light-blue !important;
+}
+h6:hover {
+  transition: all 0.6s ease;
+  color: $light-blue !important;
+}
 
 // مش هيتنفذ غير علي الي اكبر من 768
 @media (min-width: 768px) {
