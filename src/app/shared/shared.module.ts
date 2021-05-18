@@ -7,11 +7,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, SpinnerComponent],
   imports: [
     CommonModule,
     LayoutModule,
@@ -21,6 +22,6 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatListModule
   ],
-  exports:[NavbarComponent]
+  exports:[NavbarComponent , SpinnerComponent]
 })
 export class SharedModule { }

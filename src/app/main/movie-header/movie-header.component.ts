@@ -11,20 +11,20 @@ export class MovieHeaderComponent {
   popularMovies
   imgPrefix: string = "https://image.tmdb.org/t/p/w500";
   constructor(private Http: MoviesService) {
-    this.Http.getPopularMovies(1).subscribe(data => {
-      this.popularMovies = data
     
-    })
+    setTimeout(() => {
+      this.Http.getPopularMovies(1).subscribe(data => {
+        this.popularMovies = data
+      }) 
+    },4000)
   }
 
   customOptions: OwlOptions = {
     stagePadding: 100,
     loop: true,
-    slideBy:3,
-    autoplayTimeout:4000,
-    rewind: true,
-    pullDrag : true,
     touchDrag: true,
+    slideBy: 4,
+    autoplayTimeout: 5000,
     autoplay:true,
     margin: 30,
     nav: false,
@@ -39,7 +39,7 @@ export class MovieHeaderComponent {
         items: 3
       },
       1000: {
-        items: 3
+        items: 4
       }
     }
   }
