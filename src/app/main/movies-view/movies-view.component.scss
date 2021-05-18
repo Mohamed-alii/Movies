@@ -109,33 +109,33 @@
                 transition: all .4s ease;
               }
               // when checked we need to make the text appear so we give higher z index 
-              #first_toggle:checked ~ .now-playing {
+              #now-playing:checked ~ .now-playing {
                 color: $lighter-blue;
                 position: relative;
                 z-index: 5;
               }
-              #second_toggle:checked ~ .popular{
+              #popular:checked ~ .popular{
                 color: $lighter-blue;
                 position: relative;
                 z-index: 5;
               }
-              #third_toggle:checked ~ .up-coming{
+              #up-coming:checked ~ .up-coming{
                 color: $lighter-blue;
                 position: relative;
                 z-index: 5;
               }
               // when checked we need to move the slider to the checked label 
-              #first_toggle:checked ~ .toggle_option_slider{
+              #now-playing:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
                 left: 2%;
                 width: 42%;
               }
-              #second_toggle:checked ~ .toggle_option_slider{
+              #popular:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
                 left: 44%;
                 width: 30%;
               }
-              #third_toggle:checked ~ .toggle_option_slider{
+              #up-coming:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
                 left: 74%;
                 width: 24%;
