@@ -6,7 +6,8 @@
 <owl-carousel-o [options]="customOptions" #owlCar>
     
     <ng-template class="" carouselSlide *ngFor="let movie of popularMovies.results">
-        <figure class=" mb-0 animate__animated animate__fadeIn " style="cursor: pointer;">
+        <figure (click)="moviesDetailes(movie.id)"
+        class=" mb-0 animate__animated animate__fadeIn " style="cursor: pointer;">
             <div class="itemOverlay d-flex  flex-column justify-content-between">
                 <div class="d-flex justify-content-between align-items-baseline w-100">
                     <i class="far fa-bookmark p-2 rounded m-3" style="background-color: #151f30;"></i>
