@@ -16,7 +16,7 @@ export class MovieHeaderComponent {
       this.Http.getPopularMovies(1).subscribe(data => {
         this.popularMovies = data
       }) 
-    },4000)
+    },500)
   }
 
   customOptions: OwlOptions = {

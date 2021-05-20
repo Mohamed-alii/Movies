@@ -28,4 +28,14 @@ export class MoviesService {
     return this.Http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US&page=${pageNumber}`)
   }
 
+  getMoviesGenres():Observable<any>
+  {
+    return this.Http.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
+  }
+
+  getMovieTrailer(movieId):Observable<any>
+  {
+    return this.Http.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
+  }
+
 }
