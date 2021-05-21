@@ -1,6 +1,6 @@
-<figure class="position-relative mb-5">
+<div class="position-relative res">
     <div class="cover d-flex flex-column justify-content-end">
-        <div class="w-50 p-5 text-start">
+        <div class="w-100 container-fluid p-5">
             <h2 class="mb-3">{{movie.title}}</h2>
             <div class="mb-3 d-flex ">
                 <i class="far fa-star mr-1 color"></i>
@@ -10,17 +10,40 @@
                 <li class="mr-4">{{movie.runtime }} Minute</li>
                 <li class="mr-4" *ngIf="movie.adult">{{adults}}</li>
             </div>
-            <p>{{movie.overview}}</p>
+            <p class="w-50 ">{{movie.overview}}</p>
+            <h2 class="colorBule my-md-5 ">More Like This</h2>
         </div>
     </div>
 
     <img [src]="imgPrefix+movie.backdrop_path" alt="" class="w-100 img-fluid">
-</figure>
+</div>
 
-<div class="container-fluid mt-5">
-        <div class="row">
-    <figure class="col-3" *ngFor="let similarMovie of similar.results">
-        <img [src]="imgPrefix+similarMovie.poster_path" alt="" class="w-100 img-fluid">
-    </figure>
+<div class=" row  align-items-center container-fluid no-gutters mt-3">
+    <button type="button" class="col-0 sliderBtn rounded-circle" (click)="owlCar.prev()"><i
+            class="fas fa-arrow-left text-white"></i></button>
+
+    <div class="col-11  container-fluid ">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+            <ng-template class="" carouselSlide *ngFor="let similarMovie of similar.results">
+                <figure (click)="moviesDetailes(similarMovie.id)" class=" mb-0 animate__animated animate__fadeIn "
+                    style="cursor: pointer;">
+                    <div class="itemOverlay d-flex  flex-column justify-content-between">
+                        <div class="d-flex justify-content-between align-items-baseline w-100">
+                            <i class="far fa-bookmark p-2 rounded m-3" style="background-color: #151f30;"></i>
+                            <span class="icons m-3 p-1"><i
+                                    class="far fa-star m-1"></i>{{similarMovie.vote_average}}</span>
+                        </div>
+                        <i class="fas fa-play-circle fa-2x mx-auto my-auto"></i>
+                    </div>
+                    <img [src]="imgPrefix+similarMovie.poster_path" alt="" class="w-100 ">
+                </figure>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+
+    <button type="button" class="col-0 sliderBtn rounded-circle" (click)="owlCar.next()"><i
+            class="fas fa-arrow-right text-white"></i></button>
 </div>
-</div>
+
+
+
