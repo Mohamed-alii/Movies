@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit , ViewChild , ElementRef , HostListener} from '@angular/core';
-import { MoviesService } from '../../services/movies.service'
+import { MoviesService } from '../../services/movies.service';
 @Component({
   selector: 'app-movies-view',
   templateUrl: './movies-view.component.html',

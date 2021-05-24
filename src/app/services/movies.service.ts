@@ -17,6 +17,10 @@ export class MoviesService {
     return this.Http.get(`https://api.themoviedb.org/3/trending/movie/week?page=${pageNumber}&api_key=6f24f3712f6a267833075d28fa873be3`)
   }
 
+  getTopRatedMovies(pageNumber):Observable<any>
+  {
+    return this.Http.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US&page=${pageNumber}`)
+  }
   
   getUpComingMovies(pageNumber):Observable<any>
   {
@@ -36,6 +40,21 @@ export class MoviesService {
   getMovieTrailer(movieId):Observable<any>
   {
     return this.Http.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
+  }
+
+  getTrendingPersons():Observable<any>
+  {
+    return this.Http.get(`https://api.themoviedb.org/3/trending/person/week?api_key=6f24f3712f6a267833075d28fa873be3`)
+  }
+
+  getTrendingTvs():Observable<any>
+  {
+    return this.Http.get(`https://api.themoviedb.org/3/trending/tv/week?api_key=6f24f3712f6a267833075d28fa873be3`)
+  }
+
+  getTrendingMovies():Observable<any>
+  {
+    return this.Http.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=6f24f3712f6a267833075d28fa873be3`)
   }
 
 }
