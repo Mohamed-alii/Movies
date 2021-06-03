@@ -1,7 +1,9 @@
+
 import { MoviesService } from './../../services/movies.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -15,7 +17,19 @@ export class MoviesDetailsComponent {
   movie
   similar
   adults
-  constructor(private route: ActivatedRoute, private http: MoviesService, private router: Router, private window: Window) {
+  trailer
+  trailerUrl
+  url
+  reviews
+  read = false
+  actors
+  constructor(private route: ActivatedRoute,
+    private http: MoviesService,
+    private router: Router,
+    private window: Window,
+    private sanitizer: DomSanitizer
+  ) {
+
     this.movieId = this.route.snapshot.params['id']
 
     this.http.getMovieDetailes(this.movieId).subscribe(data => {
@@ -25,15 +39,65 @@ export class MoviesDetailsComponent {
       }
     })
 
-    this.http.getMoviesVideo(this.movieId).subscribe(data => console.log(data))
     this.http.getSimilarMovies(this.movieId).subscribe(data => this.similar = data)
+    this.http.getMovieTrailer(this.movieId).subscribe(data => {
+      this.trailer = data
+      this.trailerUrl = `https://www.youtube.com/embed/${this.trailer.results[0].key}`
+      this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerUrl)
+    })
+
+    this.http.getMovieReveiw(this.movieId).subscribe(data => {
+      console.log(data)
+      this.reviews = data
+    })
+
+    this.http.getMovieActors(this.movieId).subscribe(data => this.actors = data)
+
+
+
+
+
+
+
+
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   customOptions: OwlOptions = {
     stagePadding: 25,
     loop: true,
     slideBy: 4,
-    autoplayTimeout: 5000,
+    autoplayTimeout: 6000,
     autoplay: true,
     margin: 28,
     dots: true,
@@ -55,9 +119,19 @@ export class MoviesDetailsComponent {
   }
 
   moviesDetailes(id) {
-    this.router.navigate(['/movies-details', id]).then(() => {
-      this.window.location.reload()
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/movies-details', id])
     });
+  }
+
+
+
+
+  makeUserRead(id, text) {
+    this.read = !this.read
+    let prop = this.read === true ? 'auto' : '85px'
+    document.getElementById(id).style.height = prop
+    text.target.innerText = this.read === true ? "Read Less" : "Read More "
   }
 
 

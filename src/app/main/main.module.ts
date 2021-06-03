@@ -16,7 +16,8 @@ import { MoviesDetailsComponent } from './movies-details/movies-details.componen
   imports: [
     CommonModule,
     CarouselModule,
-    SharedModule
+    SharedModule,
+ 
   ],
   exports:[
     MoviesViewComponent,

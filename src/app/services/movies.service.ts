@@ -11,9 +11,6 @@ export class MoviesService {
 
   constructor(private Http: HttpClient) { }
 
-  getMoviesVideo(id) {
-    return this.Http.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
-  }
 
   getMovieDetailes(id) {
     return this.Http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
@@ -21,7 +18,12 @@ export class MoviesService {
   getSimilarMovies(id) {
     return this.Http.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US&page=1`)
   }
-
+  getMovieReveiw(id) {
+   return this.Http.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US&page=1`)
+  }
+  getMovieActors(id) {
+    return this.Http.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
+  }
 
 
 
@@ -37,6 +39,14 @@ export class MoviesService {
 
   getNowPlayingMovies(pageNumber): Observable<any> {
     return this.Http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US&page=${pageNumber}`)
+  }
+
+  getMoviesGenres(): Observable<any> {
+    return this.Http.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
+  }
+
+  getMovieTrailer(movieId): Observable<any> {
+    return this.Http.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
   }
 
 }

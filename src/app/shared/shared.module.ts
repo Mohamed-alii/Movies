@@ -8,11 +8,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent, SpinnerComponent],
+  declarations: [NavbarComponent, SpinnerComponent, FooterComponent],
   imports: [
     CommonModule,
     LayoutModule,
@@ -22,6 +23,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatIconModule,
     MatListModule
   ],
-  exports:[NavbarComponent , SpinnerComponent]
+  exports:[NavbarComponent , SpinnerComponent , FooterComponent]
 })
 export class SharedModule { }

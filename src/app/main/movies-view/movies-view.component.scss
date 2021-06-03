@@ -5,13 +5,7 @@
 
     background-color: $primary-color;
 
-    // just testing section
-    .test
-    {
-      height: 2000px;
-      width: 100%;
-      background-color: yellow;
-    }
+
 
     .catlog-nav
     {
@@ -128,17 +122,17 @@
               #now-playing:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
                 left: 2%;
-                width: 42%;
+                width: 36%;
               }
               #popular:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
-                left: 44%;
-                width: 30%;
+                left: 38%;
+                width: 27%;
               }
               #up-coming:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
-                left: 74%;
-                width: 24%;
+                left: 65%;
+                width: 34%;
               }
 
         }
@@ -154,6 +148,11 @@
       .movie
       {
           cursor: pointer;
+
+          &:hover .movie-content__header
+          {
+            color: $lighter-blue;
+          }
 
           &:hover .movie-img-overlay
           {
@@ -255,6 +254,10 @@
               -moz-transition: all 0.4s ease;
               -ms-transition: all 0.4s ease;
               transition: all 0.4s ease;
+              &:focus
+              {
+                outline: none;
+              }
             }
 
           }
@@ -262,6 +265,53 @@
 
 
       }
+
+      .movie-content
+      {
+        font-size: 12px;
+        color: $off-white;
+
+        .movie-content__header
+        {
+          overflow: hidden;
+          transition: 0.5s;
+
+          p
+          {
+            word-wrap: break-word;
+            white-space: nowrap;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .loadmore-btn
+      {
+        background-color: $lighter-primary-color;
+        color: $off-white;
+        border-radius: 14px;
+
+        &:hover
+        {
+          background-color: $lighter-blue;
+        }
+      }
+
+      .movie-video
+      {
+        position: unset;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
 
     }
 
