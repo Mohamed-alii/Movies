@@ -9,7 +9,7 @@ import { MoviesService } from '../../services/movies.service';
 export class MoviesViewComponent implements OnInit {
 
   loadMoreIsOn:boolean = true; // true means is visible to use , false means the user clicked it and its gone
-  numberOfMovieShown:number = 18 ; // intially 78 / 2 = 39 half the movies size
+  numberOfMovieShown:number = 18 ; // intially 18 movies = 3 rows 
   imgPrefix = this._MoviesService.imgPrefix;
   popularMovies:Array<any> = [];
   NowPlayingMovies:Array<any> = [];

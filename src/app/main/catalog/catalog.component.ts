@@ -24,13 +24,16 @@ export class CatalogComponent implements OnInit {
     this.moviesService.getNowPlayingMovies("1").subscribe( (data) => {
 
       this.nowPlayingPic = data.results[0].backdrop_path;
-
+      
+      console.log("now playing =>" , this.nowPlayingPic)
+      
     } , (err) => {} )
 
     // getting popular first movie picture
     this.moviesService.getPopularMovies("1").subscribe( (data) => {
 
       this.popularPic = data.results[0].backdrop_path;
+      console.log("now poular =>" , this.popularPic)
 
     } , (err) => {} )
 
@@ -38,6 +41,7 @@ export class CatalogComponent implements OnInit {
     this.moviesService.getTopRatedMovies("1").subscribe( (data) => {
 
       this.topRatedPic = data.results[0].backdrop_path;
+      console.log("now toprated =>" , this.topRatedPic)
 
     } , (err) => {} )
 
@@ -45,6 +49,7 @@ export class CatalogComponent implements OnInit {
     this.moviesService.getUpComingMovies("1").subscribe( (data) => {
 
       this.upComingPic = data.results[0].backdrop_path;
+      console.log("up playing =>" , this.upComingPic)
 
     } , (err) => {} )
 
@@ -53,6 +58,7 @@ export class CatalogComponent implements OnInit {
     this.moviesService.getTrendingTvs().subscribe( (data) => {
 
       this.trendingTvPic = data.results[0].backdrop_path;
+      console.log("now trending tv =>" , this.trendingTvPic)
 
     } , (err) => {} )
 
@@ -60,6 +66,7 @@ export class CatalogComponent implements OnInit {
     this.moviesService.getTrendingMovies().subscribe( (data) => {
 
       this.trendingMoviePic = data.results[0].backdrop_path;
+      console.log("now trending movies =>" , this.trendingMoviePic)
 
     } , (err) => {} )
     

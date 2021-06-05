@@ -89,7 +89,7 @@ export class CatalogListComponent implements OnInit {
 
           break;
 
-      case 'trendingTv':
+      case 'trendingSeries':
           this.moviesService.getTrendingTvs().subscribe( (data) => { 
 
             this.list = this.list.concat( data.results );
@@ -102,7 +102,7 @@ export class CatalogListComponent implements OnInit {
 
           break;
 
-      case 'trendingMovie':
+      case 'trendingMovies':
           this.moviesService.getTrendingMovies().subscribe( (data) => { 
 
             this.list = this.list.concat( data.results );

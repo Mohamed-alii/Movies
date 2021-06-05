@@ -16,7 +16,7 @@
                     <div class="wrapper d-flex justify-content-center">
 
                         <div class="toggle_radio py-2 px-0">
-                            <input type="radio" checked (change)="selected($event)" class="toggle_option" id="now-playing" name="catalog" ngModel>
+                            <input type="radio" (change)="selected($event)" checked class="toggle_option" id="now-playing" name="catalog" ngModel>
                             <input type="radio" (change)="selected($event)" class="toggle_option" id="popular" name="catalog" ngModel>
                             <input type="radio" (change)="selected($event)" class="toggle_option" id="up-coming" name="catalog" ngModel>
                             <label class="now-playing" for="now-playing" ><p class="m-0">Now Playing</p></label>
@@ -41,64 +41,67 @@
             <div class="row">
 
                 <div class="movie col-lg-2 col-md-4 col-6" *ngFor="let movie of selectedCategory ; index as i">
+                    <a [routerLink]="['/movies-details', movie.id]" >  
 
-                    <div class="position-relative">
-                        <!-- here we dont want to show more than 76 movies just to be a complete row -->
-                        <div class="movie-img-overlay d-flex justify-content-center align-items-center m-0" *ngIf="i < numberOfMovieShown" >
+                        <div class="position-relative">
+                            <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                            <div class="movie-img-overlay d-flex justify-content-center align-items-center m-0" *ngIf="i < numberOfMovieShown" >
 
-                            <button class="btn favorite-icon-wrapper py-1 px-2">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-    
-                            <div class="rate-icon-wrapper p-1">
-                                <i class="far fa-star pr-1"></i> <span class="text-white">{{movie.vote_average}}</span>
+                                <button class="btn favorite-icon-wrapper py-1 px-2">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+        
+                                <div class="rate-icon-wrapper p-1">
+                                    <i class="far fa-star pr-1"></i> <span class="text-white">{{movie.vote_average}}</span>
+                                </div>
+        
+                                <button (click)='playTrailer(movie.id)' class="btn movie-play-btn"> <i class="far fa-play-circle "></i> </button>
+        
                             </div>
-    
-                            <button (click)='playTrailer(movie.id)' class="btn movie-play-btn"> <i class="far fa-play-circle "></i> </button>
-    
+                            <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                            <figure class="overflow-hidden img-wrapper" *ngIf="i < numberOfMovieShown">
+                                <img class="img-fluid movie-img" [src]="imgPrefix + movie.poster_path" >
+                            </figure>
+
                         </div>
                         <!-- here we dont want to show more than 76 movies just to be a complete row -->
-                        <figure class="overflow-hidden img-wrapper" *ngIf="i < numberOfMovieShown">
-                            <img class="img-fluid movie-img" [src]="imgPrefix + movie.poster_path" >
-                        </figure>
+                        <div class="movie-content px-1" *ngIf="i < numberOfMovieShown" >
 
-                    </div>
-                    <!-- here we dont want to show more than 76 movies just to be a complete row -->
-                    <div class="movie-content px-1" *ngIf="i < numberOfMovieShown" >
-
-                        <div class="movie-content__header">
-                            <p class="h6">{{movie .title}}</p>
-                        </div>
-
-                        <div [ngSwitch]="movie.genre_ids[0]">
-
-                            <div *ngFor='let genre of moviesGenres' class="d-flex justify-content-between m-0" >
-
-                                <p *ngSwitchCase="genre.id">Free </p>
-                                <p *ngSwitchCase="genre.id">{{genre.name}}</p>
-
-
-                                <!-- <p *ngSwitchCase="28">Action</p>
-                                <p *ngSwitchCase="12">Adventure</p>
-                                <p *ngSwitchCase="16">Animation</p>
-                                <p *ngSwitchCase="35">Comedy</p>
-                                <p *ngSwitchCase="80">Crime</p>
-                                <p *ngSwitchCase="99">Documentary</p>
-                                <p *ngSwitchCase="18">Drama</p>
-                                <p *ngSwitchCase="10751">10751</p>
-                                <p *ngSwitchCase="14">Fantasy</p>
-                                <p *ngSwitchCase="36">History</p>
-                                <p *ngSwitchCase="27">Horror</p>
-                                <p *ngSwitchCase="10402">Music</p>
-                                <p *ngSwitchCase="9648">Mystery</p>
-                                <p *ngSwitchCase="10749">Romance</p> -->
-
+                            <div class="movie-content__header">
+                                <p class="h6">{{movie .title}}</p>
                             </div>
-                        </div>
-                        
-                    </div>
 
-                    
+                            <div [ngSwitch]="movie.genre_ids[0]">
+
+                                <div *ngFor='let genre of moviesGenres' class="d-flex justify-content-between m-0" >
+
+                                    <p *ngSwitchCase="genre.id">Free </p>
+                                    <p *ngSwitchCase="genre.id">{{genre.name}}</p>
+
+
+                                    <!-- <p *ngSwitchCase="28">Action</p>
+                                    <p *ngSwitchCase="12">Adventure</p>
+                                    <p *ngSwitchCase="16">Animation</p>
+                                    <p *ngSwitchCase="35">Comedy</p>
+                                    <p *ngSwitchCase="80">Crime</p>
+                                    <p *ngSwitchCase="99">Documentary</p>
+                                    <p *ngSwitchCase="18">Drama</p>
+                                    <p *ngSwitchCase="10751">10751</p>
+                                    <p *ngSwitchCase="14">Fantasy</p>
+                                    <p *ngSwitchCase="36">History</p>
+                                    <p *ngSwitchCase="27">Horror</p>
+                                    <p *ngSwitchCase="10402">Music</p>
+                                    <p *ngSwitchCase="9648">Mystery</p>
+                                    <p *ngSwitchCase="10749">Romance</p> -->
+
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                   </a>
+
+                <!-- movies view content END-->
                 </div>
 
                 <div class="col-12 mt-4 d-flex align-items-center justify-content-center">
@@ -107,17 +110,16 @@
 
                 <div #movieVideoContainer (click)='skipVideo()' class="movie-video ">
 
-                      <iframe #movieVideo width="70%" height="80%"
+                    <iframe #movieVideo width="70%" height="80%"
                         src="">
-                      </iframe>
+                    </iframe>
 
                 </div>
 
-                
 
             </div>
+
         </div>
-        <!-- movies view content END-->
 
   
 

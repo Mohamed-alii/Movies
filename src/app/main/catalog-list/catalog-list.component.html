@@ -16,53 +16,51 @@
 
             <div class="movie col-lg-3 col-md-4 col-6" *ngFor="let movie of list ; index as i" >
 
-                <a [routerLink]="['/movies-details', movie.id]">
+                <a [routerLink]="['/movies-details', movie.id]" >  
 
-                
+                    <div class="position-relative">
+                        <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                        <div class="movie-img-overlay d-flex justify-content-center align-items-center m-0" *ngIf="i < numberOfMovieShown" >
 
-                <div class="position-relative">
-                    <!-- here we dont want to show more than 76 movies just to be a complete row -->
-                    <div class="movie-img-overlay d-flex justify-content-center align-items-center m-0" *ngIf="i < numberOfMovieShown" >
+                            <button class="btn favorite-icon-wrapper py-1 px-2">
+                                <i class="far fa-bookmark"></i>
+                            </button>
 
-                        <button class="btn favorite-icon-wrapper py-1 px-2">
-                            <i class="far fa-bookmark"></i>
-                        </button>
+                            <div class="rate-icon-wrapper p-1">
+                                <i class="far fa-star pr-1"></i> <span class="text-white">{{movie.vote_average}}</span>
+                            </div>
 
-                        <div class="rate-icon-wrapper p-1">
-                            <i class="far fa-star pr-1"></i> <span class="text-white">{{movie.vote_average}}</span>
-                        </div>
-
-                        <button (click)='playTrailer(movie.id)' class="btn movie-play-btn"> <i class="far fa-play-circle "></i> </button>
-
-                    </div>
-                    <!-- here we dont want to show more than 76 movies just to be a complete row -->
-                    <figure class="overflow-hidden img-wrapper" *ngIf="i < numberOfMovieShown">
-                        <img class="img-fluid movie-img" [src]="imgPrefix + movie.poster_path" >
-                    </figure>
-
-                </div>
-                <!-- here we dont want to show more than 76 movies just to be a complete row -->
-                <div class="movie-content px-2 mb-3" *ngIf="i < numberOfMovieShown" >
-
-                    <div class="movie-content__header">
-                        <p class="h6 mb-0">{{movie.title}}</p>
-                        <p class="h6 mb-0" >{{movie.name}}</p>
-
-                    </div>
-
-                    <div [ngSwitch]="movie.genre_ids[0]" class="mt-2">
-
-                        <div *ngFor='let genre of moviesGenres' class="d-flex justify-content-between m-0 " >
-
-                            <p *ngSwitchCase="genre.id">Free </p>
-                            <p *ngSwitchCase="genre.id">{{genre.name}}</p>
-
+                            <button (click)='playTrailer(movie.id)' class="btn movie-play-btn"> <i class="far fa-play-circle "></i> </button>
 
                         </div>
+                        <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                        <figure class="overflow-hidden img-wrapper" *ngIf="i < numberOfMovieShown">
+                            <img class="img-fluid movie-img" [src]="imgPrefix + movie.poster_path" >
+                        </figure>
+
                     </div>
-                    
-                </div>
-            </a>
+                    <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                    <div class="movie-content px-2 mb-3" *ngIf="i < numberOfMovieShown" >
+
+                        <div class="movie-content__header">
+                            <p class="h6 mb-0">{{movie.title}}</p>
+                            <p class="h6 mb-0" >{{movie.name}}</p>
+
+                        </div>
+
+                        <div [ngSwitch]="movie.genre_ids[0]" class="mt-2">
+
+                            <div *ngFor='let genre of moviesGenres' class="d-flex justify-content-between m-0 " >
+
+                                <p *ngSwitchCase="genre.id">Free </p>
+                                <p *ngSwitchCase="genre.id">{{genre.name}}</p>
+
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </a>
                 
             </div>
 

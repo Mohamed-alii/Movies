@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CatalogComponent } from './catalog/catalog.component';
 import { MoviesDetailsComponent } from './movies-details/movies-details.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CatalogListComponent } from './catalog-list/catalog-list.component';
   imports: [
     CommonModule,
     CarouselModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   exports:[
     MoviesViewComponent,
