@@ -5,13 +5,17 @@ import { MovieHeaderComponent } from './movie-header/movie-header.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { SharedModule } from '../shared/shared.module';
 import { CatalogComponent } from './catalog/catalog.component';
+import { MoviesDetailsComponent } from './movies-details/movies-details.component';
+import { CatalogListComponent } from './catalog-list/catalog-list.component';
 
 
 @NgModule({
   declarations: [
     MoviesViewComponent,
     MovieHeaderComponent,
-    CatalogComponent
+    CatalogComponent,
+    MoviesDetailsComponent,
+    CatalogListComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,9 @@ import { CatalogComponent } from './catalog/catalog.component';
   exports:[
     MoviesViewComponent,
     MovieHeaderComponent,
-    CatalogComponent
+    CatalogComponent,
+    MoviesDetailsComponent,
+    CatalogListComponent
   ]
 })
 export class MainModule { }

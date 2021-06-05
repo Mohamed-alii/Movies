@@ -1,6 +1,7 @@
 import { MoviesService } from './../../services/movies.service';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'movie-header',
@@ -10,13 +11,14 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class MovieHeaderComponent {
   popularMovies
   imgPrefix: string = "https://image.tmdb.org/t/p/w500";
-  constructor(private Http: MoviesService) {
+  constructor(private Http: MoviesService , private route : Router) {
     
     setTimeout(() => {
       this.Http.getPopularMovies(1).subscribe(data => {
+        console.log(data)
         this.popularMovies = data
       }) 
-    },500)
+    },1000)
   }
 
   customOptions: OwlOptions = {
@@ -44,6 +46,9 @@ export class MovieHeaderComponent {
     }
   }
 
+moviesDetailes(id) {
+  this.route.navigate(['/movies-details',id])
+  }
 
 
 }

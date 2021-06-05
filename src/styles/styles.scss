@@ -1,11 +1,12 @@
-@import'./partials/var';
+@import "./partials/var";
 
 html,
 body {
   height: 100%;
 }
 body {
-  background-color:$primary-color;
+
+  background-color: $primary-color;
   margin: 0;
   font-family: $main-font;
 }
@@ -14,4 +15,9 @@ body {
 {
   width: 85% ;
   margin: 0 auto;
+}
+
+h1
+{
+  color: $off-white ;
 }

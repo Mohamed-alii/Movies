@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     MainModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{ provide: Window, useValue: window }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

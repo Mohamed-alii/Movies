@@ -1,0 +1,165 @@
+@import '../../../styles/partials/var';
+
+.list 
+{
+  color: $faint-white;
+
+  .movie {
+    cursor: pointer;
+
+    &:hover .movie-content__header 
+    {
+      color: $lighter-blue;
+    }
+
+    &:hover .movie-img-overlay 
+    {
+      background: rgba(0, 0, 0, 0.2) !important;
+      visibility: visible !important;
+    }
+
+    &:hover .movie-img 
+    {
+      filter: blur(0.05rem);
+      transform: scale(1.1);
+    }
+
+    &:hover .rate-icon-wrapper 
+    {
+      opacity: 1 !important;
+      font-size: 0.8rem !important;
+    }
+
+    &:hover .favorite-icon-wrapper 
+    {
+      opacity: 1 !important;
+      font-size: 0.8rem !important;
+    }
+
+    &:hover .movie-play-btn 
+    {
+      opacity: 1 !important;
+      font-size: 2.5rem !important;
+    }
+
+    .img-wrapper 
+    {
+      border-radius: 16px;
+    }
+
+    .movie-img 
+    {
+      border-radius: 16px;
+      transition: all 0.5s ease;
+    }
+
+    .movie-img-overlay 
+    {   
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      margin: 0 15px 20px;
+      visibility: hidden;
+      z-index: 5;
+
+      .favorite-icon-wrapper 
+      {
+        background-color: $lighter-primary-color;
+        color: $light-blue;
+        position: absolute;
+        top: 4%;
+        left: 4%;
+        border-radius: 10px;
+        font-size: 0.6rem;
+        opacity: 0;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+
+        &:hover 
+        {
+          color: $secondary-color;
+        }
+
+      }
+
+      .rate-icon-wrapper 
+      {
+        background-color: $lighter-primary-color;
+        color: $light-blue;
+        position: absolute;
+        top: 4%;
+        right: 4%;
+        border-radius: 10px;
+        font-size: 0.6rem;
+        opacity: 0;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+      }
+
+      .movie-play-btn 
+      {
+        font-size: 1.7rem;
+        color: whitesmoke;
+        opacity: 0;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+
+        &:focus 
+        {
+          box-shadow: none;
+        }
+
+        }
+       }
+    }
+
+    .loadmore-btn
+      {
+        background-color: $lighter-primary-color;
+        color: $off-white;
+        border-radius: 14px;
+
+        &:hover
+        {
+          background-color: $lighter-blue;
+        }
+      }
+
+      .movie-video
+      {
+        position: unset;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .movie-content
+      {
+        font-size: 15px;
+        color: $off-white;
+
+        .movie-content__header
+        {
+          overflow: hidden;
+          transition: 0.5s;
+
+        }
+      }
+    
+}
+

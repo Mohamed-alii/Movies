@@ -43,7 +43,7 @@
                 <div class="movie col-lg-2 col-md-4 col-6" *ngFor="let movie of selectedCategory ; index as i">
 
                     <div class="position-relative">
-                        <!-- here we dont want to show more than 76 movies just tb be a completer row -->
+                        <!-- here we dont want to show more than 76 movies just to be a complete row -->
                         <div class="movie-img-overlay d-flex justify-content-center align-items-center m-0" *ngIf="i < numberOfMovieShown" >
 
                             <button class="btn favorite-icon-wrapper py-1 px-2">
@@ -57,14 +57,14 @@
                             <button (click)='playTrailer(movie.id)' class="btn movie-play-btn"> <i class="far fa-play-circle "></i> </button>
     
                         </div>
-                        <!-- here we dont want to show more than 76 movies just tb be a completer row -->
+                        <!-- here we dont want to show more than 76 movies just to be a complete row -->
                         <figure class="overflow-hidden img-wrapper" *ngIf="i < numberOfMovieShown">
                             <img class="img-fluid movie-img" [src]="imgPrefix + movie.poster_path" >
                         </figure>
 
                     </div>
-                    <!-- here we dont want to show more than 76 movies just tb be a completer row -->
-                    <div class="movie-content" *ngIf="i < numberOfMovieShown" >
+                    <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                    <div class="movie-content px-1" *ngIf="i < numberOfMovieShown" >
 
                         <div class="movie-content__header">
                             <p class="h6">{{movie .title}}</p>
@@ -112,6 +112,8 @@
                       </iframe>
 
                 </div>
+
+                
 
             </div>
         </div>
