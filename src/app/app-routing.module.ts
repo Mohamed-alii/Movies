@@ -5,12 +5,14 @@ import { MoviesDetailsComponent } from './main/movies-details/movies-details.com
 import { MoviesViewComponent } from './main/movies-view/movies-view.component';
 import { CatalogComponent } from './main/catalog/catalog.component';
 import { CatalogListComponent } from './main/catalog-list/catalog-list.component';
+import { SearchComponent } from './main/search/search.component';
 
 
 
 const routes: Routes = [
   { path: '', component: MovieHeaderComponent },
   { path: '', component: MoviesViewComponent },
+  { path: 'search/:query', component: SearchComponent },
   { path: 'catalog' , component: CatalogComponent },
   { path: 'catalog/:listName' , component: CatalogListComponent },
   { path: 'movies-details/:id', component: MoviesDetailsComponent },

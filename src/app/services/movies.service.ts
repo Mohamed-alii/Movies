@@ -39,12 +39,23 @@ export class MoviesService {
     return this.Http.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US&page=${pageNumber}`)
   }
 
-  getNowPlayingMovies(pageNumber): Observable<any> {
+  getNowPlayingMovies(pageNumber): Observable<any> 
+  {
     return this.Http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US&page=${pageNumber}`)
   }
 
-  getMoviesGenres(): Observable<any> {
+  getMoviesGenres():Observable<any> 
+  {
     return this.Http.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
+  }
+
+  getTvGenres():Observable<any> 
+  {
+    return this.Http.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US`)
+  }
+  getSearchResults(searchQuery , pageNumber):Observable<any> 
+  {
+    return this.Http.get(`https://api.themoviedb.org/3/search/multi?api_key=6f24f3712f6a267833075d28fa873be3&language=en-US&query=${searchQuery}&page=${pageNumber}&include_adult=false`)
   }
 
   getMovieTrailer(movieId): Observable<any> {

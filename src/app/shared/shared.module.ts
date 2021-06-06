@@ -9,11 +9,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { FooterComponent } from './footer/footer.component';
+import { TopScrollComponent } from './top-scroll/top-scroll.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent, SpinnerComponent, FooterComponent],
+  declarations: [NavbarComponent, SpinnerComponent, FooterComponent, TopScrollComponent],
   imports: [
     CommonModule,
     LayoutModule,
@@ -23,6 +24,6 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatListModule
   ],
-  exports:[NavbarComponent , SpinnerComponent , FooterComponent]
+  exports:[NavbarComponent , SpinnerComponent , FooterComponent , TopScrollComponent]
 })
 export class SharedModule { }

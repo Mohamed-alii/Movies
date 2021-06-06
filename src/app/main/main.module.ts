@@ -8,6 +8,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { MoviesDetailsComponent } from './movies-details/movies-details.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AppRoutingModule } from '../app-routing.module';
     CatalogComponent,
     MoviesDetailsComponent,
     CatalogListComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { AppRoutingModule } from '../app-routing.module';
     MovieHeaderComponent,
     CatalogComponent,
     MoviesDetailsComponent,
-    CatalogListComponent
+    CatalogListComponent,
+    SearchComponent
   ]
 })
 export class MainModule { }

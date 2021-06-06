@@ -41,7 +41,6 @@
             <div class="row">
 
                 <div class="movie col-lg-2 col-md-4 col-6" *ngFor="let movie of selectedCategory ; index as i">
-                    <a [routerLink]="['/movies-details', movie.id]" >  
 
                         <div class="position-relative">
                             <!-- here we dont want to show more than 76 movies just to be a complete row -->
@@ -64,6 +63,9 @@
                             </figure>
 
                         </div>
+                        
+                    <a [routerLink]="['/movies-details', movie.id]" >  
+                
                         <!-- here we dont want to show more than 76 movies just to be a complete row -->
                         <div class="movie-content px-1" *ngIf="i < numberOfMovieShown" >
 

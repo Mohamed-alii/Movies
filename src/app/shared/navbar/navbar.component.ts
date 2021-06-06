@@ -1,7 +1,8 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener , ElementRef , ViewChild} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -17,7 +18,20 @@ export class NavbarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  @ViewChild('searchInput') searchInput: ElementRef;
+
+
+  constructor(private breakpointObserver: BreakpointObserver , private router:Router) { }
+
+  search(eventInfo)
+  {
+    let userSearch = this.searchInput.nativeElement.value;
+
+    this.router.navigateByUrl( '/' , {skipLocationChange: true } ).then( () => {
+      this.router.navigate([ `/search/${userSearch}` ])
+    });
+
+  }
 
   showUserOption() {
     this.userOptionClicked = !this.userOptionClicked

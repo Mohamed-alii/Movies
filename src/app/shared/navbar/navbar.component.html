@@ -60,8 +60,8 @@
         </li>
 
         <form class="text-white mainNav">
-          <input class="searchShape text-white" placeholder="I'm looking for...">
-          <i class="fas fa-search colorBule" style="margin-left: -30px;"></i>
+          <input #searchInput class="searchShape text-white" placeholder="I'm looking for...">
+          <i (click)='search($event)' class="fas fa-search colorBule" style="margin-left: -30px;"></i>
         </form>
 
         <li class="navbar-nav mainNav">
