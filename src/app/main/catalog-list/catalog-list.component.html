@@ -1,0 +1,84 @@
+
+
+<section class="list">
+    <div class="wide-container">
+
+        <header [ngSwitch]="catalogList" class="py-5">
+            <h1 *ngSwitchCase="'nowPlaying'" >Now Playing Movies</h1>
+            <h1 *ngSwitchCase="'popular'" >Popular Movies</h1>
+            <h1 *ngSwitchCase="'topRated'" >Top Rated Movies</h1>
+            <h1 *ngSwitchCase="'upComing'" >Up Coming</h1>
+            <h1 *ngSwitchCase="'trendingTv'" >Trending Series</h1>
+            <h1 *ngSwitchCase="'trendingMovie'" >Trending Movies</h1>
+        </header>
+
+        <div class="row">
+
+            <div class="movie col-lg-3 col-md-4 col-6" *ngFor="let movie of list ; index as i" >
+
+
+                    <div class="position-relative">
+                        <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                        <div class="movie-img-overlay d-flex justify-content-center align-items-center m-0" *ngIf="i < numberOfMovieShown" >
+
+                            <button class="btn favorite-icon-wrapper py-1 px-2">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+
+                            <div class="rate-icon-wrapper p-1">
+                                <i class="far fa-star pr-1"></i> <span class="text-white">{{movie.vote_average}}</span>
+                            </div>
+
+                            <button (click)='playTrailer(movie.id)' class="btn movie-play-btn"> <i class="far fa-play-circle "></i> </button>
+
+                        </div>
+                        <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                        <figure class="overflow-hidden img-wrapper" *ngIf="i < numberOfMovieShown">
+                            <img class="img-fluid movie-img" [src]="imgPrefix + movie.poster_path" >
+                        </figure>
+
+                    </div>
+                    
+                <a [routerLink]="['/movies-details', movie.id]" >  
+                
+                    <!-- here we dont want to show more than 76 movies just to be a complete row -->
+                    <div class="movie-content px-2 mb-3" *ngIf="i < numberOfMovieShown" >
+
+                        <div class="movie-content__header">
+                            <p class="h6 mb-0">{{movie.title}}</p>
+                            <p class="h6 mb-0" >{{movie.name}}</p>
+
+                        </div>
+
+                        <div [ngSwitch]="movie.genre_ids[0]" class="mt-2">
+
+                            <div *ngFor='let genre of moviesGenres' class="d-flex justify-content-between m-0 " >
+
+                                <p *ngSwitchCase="genre.id">Free </p>
+                                <p *ngSwitchCase="genre.id">{{genre.name}}</p>
+
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </a>
+                
+            </div>
+
+        </div>
+
+        <div class="col-12 mt-4 d-flex align-items-center justify-content-center">
+            <button  class="btn loadmore-btn py-3 px-5" (click)='loadMore($event)'>Load More</button>
+        </div>
+
+        <div #movieVideoContainer (click)='skipVideo()' class="movie-video ">
+
+            <iframe #movieVideo width="70%" height="80%"
+              src="">
+            </iframe>
+
+        </div>
+
+    </div>
+</section>

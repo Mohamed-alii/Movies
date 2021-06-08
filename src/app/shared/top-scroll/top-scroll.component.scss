@@ -1,0 +1,28 @@
+@import '../../../styles/partials/var';
+
+
+.scroll-up
+{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: $light-blue;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+    border: solid white 1px;
+}
+
+.scroll-up:hover
+{
+    background-color: #184076;
+    cursor: pointer;
+}
+
+.arrow-icon
+{
+    size: 60px;
+}

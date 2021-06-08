@@ -5,6 +5,8 @@
 
     background-color: $primary-color;
 
+
+
     .catlog-nav
     {
         border-radius: 16px;
@@ -69,7 +71,7 @@
                 color: rgba(255,255,255,.9);
                 z-index: 0;
                 display: block;
-                padding: 0 0.5rem;
+                padding: 0 0.5rem 0;
                 margin: 1px;
                 -webkit-border-radius: 16px;
                 -moz-border-radius: 16px;
@@ -100,33 +102,36 @@
                 transition: all .4s ease;
               }
               // when checked we need to make the text appear so we give higher z index 
-              #first_toggle:checked ~ .featured {
+              #now-playing:checked ~ .now-playing {
                 color: $lighter-blue;
                 position: relative;
                 z-index: 5;
               }
-              #second_toggle:checked ~ .popular{
+              #popular:checked ~ .popular{
                 color: $lighter-blue;
                 position: relative;
                 z-index: 5;
               }
-              #third_toggle:checked ~ .newest{
+              #up-coming:checked ~ .up-coming{
                 color: $lighter-blue;
                 position: relative;
                 z-index: 5;
               }
               // when checked we need to move the slider to the checked label 
-              #first_toggle:checked ~ .toggle_option_slider{
+              #now-playing:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
-                left: 4%;
+                left: 2%;
+                width: 36%;
               }
-              #second_toggle:checked ~ .toggle_option_slider{
+              #popular:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
-                left: 36%;
+                left: 38%;
+                width: 27%;
               }
-              #third_toggle:checked ~ .toggle_option_slider{
+              #up-coming:checked ~ .toggle_option_slider{
                 background: $lighter-primary-color;
-                left: 67%;
+                left: 65%;
+                width: 34%;
               }
 
         }
@@ -137,18 +142,53 @@
     .movies-view-content
     {
 
-      &:hover .movie-img-overlay
-      {
-        // visibility: visible;
-      }
-
       .movie
       {
-          cursor: pointer;
+
+          &:hover .movie-content__header
+          {
+            color: $lighter-blue;
+          }
+
+          &:hover .movie-img-overlay
+          {
+            background:rgba(0,0,0,0.2) !important;
+            visibility: visible !important;
+          }
+
+          &:hover .movie-img
+          {
+            filter: blur(0.05rem);
+            transform: scale(1.1);
+          }
+
+          &:hover .rate-icon-wrapper
+          {
+            opacity: 1 !important;
+            font-size: 0.8rem !important;
+          }
+
+          &:hover .favorite-icon-wrapper
+          {
+            opacity: 1 !important;
+            font-size: 0.8rem !important;
+          }
+
+          &:hover .movie-play-btn
+          {
+            opacity: 1 !important;
+            font-size: 2.5rem !important;
+          }
+
+          .img-wrapper
+          {
+            border-radius: 16px;
+          }
 
           .movie-img
           {
-            filter: blur(0.11rem);
+            border-radius: 16px;
+            transition: all 0.5s ease;
           }
 
           .movie-img-overlay
@@ -160,7 +200,7 @@
             bottom: 0;
             border-radius: 16px;
             margin: 0 15px 20px;
-            visibility: visible;
+            visibility: hidden;
             z-index: 5;
 
             .favorite-icon-wrapper
@@ -171,8 +211,12 @@
               top: 4%;
               left: 4%;
               border-radius: 10px;
-              font-size: 0.8rem;
-              transition: color 0.5s ease;
+              font-size: 0.6rem;
+              opacity: 0;
+              -webkit-transition: all 0.4s ease;
+              -moz-transition:all 0.4s ease;
+              -ms-transition:all 0.4s ease;
+              transition:all 0.4s ease;
 
               &:hover
               {
@@ -189,24 +233,81 @@
               top: 4%;
               right: 4%;
               border-radius: 10px;
-              font-size: 0.8rem;
-
+              font-size: 0.6rem;
+              opacity: 0;
+              -webkit-transition: all 0.5s ease;
+              -moz-transition: all 0.4s ease;
+              -ms-transition: all 0.4s ease;
+              transition: all 0.4s ease;
             }
 
             .movie-play-btn
             {
-              font-size: 2.5rem;
-              font-weight: 200;
+              font-size: 1.7rem;
+              color: whitesmoke;
+              opacity: 0;
+              -webkit-transition: all 0.5s ease;
+              -moz-transition: all 0.4s ease;
+              -ms-transition: all 0.4s ease;
+              transition: all 0.4s ease;
+              &:focus
+              {
+                box-shadow: none;
+              }
             }
 
           }
 
-          .movie-img
-            {
-              border-radius: 16px;
-            }
+
 
       }
+
+      .movie-content
+      {
+        font-size: 12px;
+        color: $off-white;
+
+        .movie-content__header
+        {
+          overflow: hidden;
+          transition: 0.5s;
+
+          p
+          {
+            word-wrap: break-word;
+            white-space: nowrap;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .loadmore-btn
+      {
+        background-color: $lighter-primary-color;
+        color: $off-white;
+        border-radius: 14px;
+
+        &:hover
+        {
+          background-color: $lighter-blue;
+        }
+      }
+
+      .movie-video
+      {
+        position: unset;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
 
     }
 

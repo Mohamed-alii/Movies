@@ -1,0 +1,90 @@
+<mat-sidenav-container class="sidenav-container ">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-nav-list>
+      <h3 class="colorBule p-5 mb-5">Movies</h3>
+
+      <form class="text-white w-100 mt-2">
+        <input class="searchShape text-white w-100" placeholder="I'm looking for...">
+        <i class="fas fa-search colorBule" style="margin-left: -30px;"></i>
+      </form>
+
+      <div class="container d-flex flex-column">
+
+        <li class="navbar-nav">
+          <a class="nav-link text-white" href="#">Home</a>
+        </li>
+              <li class="navbar-nav  ">
+                <a (click)="showCateOption()" class="nav-link text-white" routerLinkActive="active" href="#">categories<i
+                    class="fas fa-caret-down p-1" *ngIf="!cateOptionClicked"> </i><i class="fas fa-caret-up text-white p-1"
+                    *ngIf="cateOptionClicked"></i></a>
+              
+                <div class="useroption mt-5 d-none  "
+                  [ngClass]="{'d-block': cateOptionClicked,'animate__animated animate__fadeInDown':cateOptionClicked}">
+                  <h6 routerLinkActive="active" class="pb-2 b">profile <i class="fas fa-user-circle"></i></h6>
+                  <h6 routerLinkActive="active">Logout <i class="fas fa-sign-out-alt"></i></h6>
+                </div>
+              </li>
+
+        <li class="navbar-nav ">
+          <a class="nav-link text-white" href="#">Sign in
+            <i class="fas fa-sign-in-alt colorBule"></i>
+          </a>
+        </li>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary">
+
+      <div class=" container-fluid d-flex align-items-baseline justify-content-around py-3 py-md-4 ">
+        <button class="" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async"><i class="fas fa-sliders-h colorBule "></i>
+        </button>
+        <h3 class="colorBule ml-2">Movies</h3>
+
+        <li class="navbar-nav mainNav">
+          <a class="nav-link text-white"  routerLinkActive="active" href="#">Home</a>
+        </li>
+        <li class="navbar-nav mainNav ">
+          <a  (click)="showCateOption()" class="nav-link text-white"  routerLinkActive="active" href="#">categories<i class="fas fa-caret-down p-1" *ngIf="!cateOptionClicked"> </i><i class="fas fa-caret-up text-white p-1"
+            *ngIf="cateOptionClicked"></i></a>
+
+          <div class="useroption mt-5 d-none  "
+             [ngClass]="{'d-block': cateOptionClicked,'animate__animated animate__fadeInDown':cateOptionClicked}"
+            >
+            <h6  routerLinkActive="active" class="pb-2 b">profile <i class="fas fa-user-circle"></i></h6>
+            <h6  routerLinkActive="active">Logout <i class="fas fa-sign-out-alt"></i></h6>
+          </div>
+        </li>
+
+        <form class="text-white mainNav">
+          <input #searchInput class="searchShape text-white" placeholder="I'm looking for...">
+          <i (click)='search($event)' class="fas fa-search colorBule" style="margin-left: -30px;"></i>
+        </form>
+
+        <li class="navbar-nav mainNav">
+          <a  routerLinkActive="active" class="nav-link text-white" href="#">Sign in
+            <i class="fas fa-sign-in-alt colorBule"></i>
+          </a>
+        </li>
+
+        <div>
+          <div class="userBox rounded-pill d-flex align-items-baseline mx-2">
+            <li class="userImg" style="margin-right: 3px;">
+              <img class="userImg w-100" src="../../../assets/big.jpg" alt="">
+            </li>
+            <span (click)="showUserOption()"  style="cursor: pointer;">User Name<i class="fas fa-caret-down p-1"
+                *ngIf="!userOptionClicked"> </i><i class="fas fa-caret-up text-white p-1" *ngIf="userOptionClicked"></i>
+            </span>
+          </div>
+          <div class="useroption " *ngIf="userOptionClicked"
+            [ngClass]="{'animate__animated animate__fadeInDown': userOptionClicked}">
+            <h6  routerLinkActive="active" class="pb-2 b">profile <i class="fas fa-user-circle"></i></h6>
+            <h6  routerLinkActive="active">Logout <i class="fas fa-sign-out-alt"></i></h6>
+          </div>
+        </div>
+
+
+      </div>

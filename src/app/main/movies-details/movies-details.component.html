@@ -1,0 +1,122 @@
+<div class="position-relative res">
+    <div class="cover d-flex flex-column justify-content-end">
+        <div class=" wide-container mt-5 ">
+            <h2 class="mb-2  mb-md-3">{{movie.title}}</h2>
+            <div class="mb-3 d-flex ">
+                <i class="far fa-star mr-1 color"></i>
+                <span class="mr-2 mr-md-3">{{movie.vote_average}}</span>
+                <li class=" mr-2 mr-md-3">{{movie.genres[0].name}}</li>
+                <li class="mr-2 mr-md-3">{{movie.release_date }}</li>
+                <li class="mr-2 mr-md-3">{{movie.runtime }} Minute</li>
+                <li class="mr-2 mr-md-3" *ngIf="movie.adult">{{adults}}</li>
+            </div>
+            <h2 class="colorBule my-4 pl-2">Storyline</h2>
+            <p class="col-12 col-md-6 p-0">{{movie.overview}}</p>
+
+        </div>
+    </div>
+
+    <img [src]="imgPrefix+movie.backdrop_path" alt="" class="w-100 img-fluid">
+</div>
+
+<div class="wide-container my-5  my-md-2 ">
+    <iframe class="trailar my-5  my-md-2  col-12 col-md-7 p-0" [src]='url' title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    <h2 class="colorBule my-4 pl-2">Top Cast</h2>
+</div>
+
+<div class="wide-container py-4">
+    <div class=" row">
+        <div class="col-6 mb-4 col-md-2" *ngFor="let actor of actors.cast |slice:0:6; let i=index">
+            <div *ngIf="i <6" class=" d-flex flex-column align-items-center  ">
+                <div class="actor mb-3"> <img [src]="imgPrefix+actor.profile_path" class=" img-fluid"></div>
+                <h4 class="color text-center">{{actor.character}}</h4>
+                <h6 class="text-white text-center">{{actor.name}}</h6>
+            </div>
+        </div>
+    </div>
+    <h2 *ngIf="reviews.results.length  != 0 " class="colorBule my-5 pl-2">User Reviews</h2>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wide-container row ">
+    <div class="reveiwBox col-12  col-md-10 mb-3 " *ngFor="let  review of  reviews.results  |slice:0:2 let i=index">
+        <div *ngIf="i < 2" class="container-fluid pb-4">
+            <div class="userBox d-flex align-items-center   py-4 ">
+                <span class="userImg" style="margin-right: 15px;">
+                    <img src="../../../assets/avatar.svg" class="userImg w-100" alt="">
+                </span>
+                <div>
+                    <span style="font-size: 1.2rem;">{{review.author}}</span>
+                    <h6 class="m-0">{{review.created_at |date}}</h6>
+                </div>
+                <span *ngIf="review.author_details.rating" class="ml-auto">{{review.author_details.rating}}/10
+                    <i class="fas fa-star color"></i>
+                </span>
+
+            </div>
+            <p class=" py-3 content" style="overflow: hidden;height: 85px" id="{{review.id}}">
+                {{review.content}}
+            </p>
+            <span class="color font-weight-bolder" (click)="makeUserRead(review.id , $event)"
+                style="cursor: pointer;">Read More</span>
+        </div>
+    </div>
+    <h2 class="colorBule my-4 pl-2">More like this</h2>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+
+    <div class=" row align-items-center  mt-4  ">
+
+
+        <button type="button" class="col-0 sliderBtn rounded-circle ml-auto " (click)="owlCar.prev()"><i
+                class="fas fa-arrow-left text-white"></i></button>
+
+        <div class="col-11">
+            <owl-carousel-o [options]="customOptions" #owlCar>
+                <ng-template class="" carouselSlide *ngFor="let similarMovie of similar.results">
+                    <figure (click)="moviesDetailes(similarMovie.id)" class=" mb-0 animate__animated animate__fadeIn "
+                        style="cursor: pointer;">
+                        <div class="itemOverlay d-flex  flex-column justify-content-between">
+                            <div class="d-flex justify-content-between align-items-baseline w-100">
+                                <i class="far fa-bookmark p-2 rounded m-3" style="background-color: #151f30;"></i>
+                                <span class="icons m-3 p-1"><i
+                                        class="far fa-star m-1"></i>{{similarMovie.vote_average}}</span>
+                            </div>
+                            <i class="fas fa-play-circle fa-2x mx-auto my-auto"></i>
+                        </div>
+                        <img [src]="imgPrefix+similarMovie.poster_path" alt="" class="w-100 ">
+                    </figure>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+
+        <button type="button" class="col-0 sliderBtn rounded-circle mr-auto" (click)="owlCar.next()"><i
+                class="fas fa-arrow-right text-white"></i></button>
+    </div>
+</div>

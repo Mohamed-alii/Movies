@@ -1,0 +1,96 @@
+@import "../../../styles/partials/var";
+
+.sidenav-container {
+  z-index: 100 !important;
+  color: $faint-white;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: #131720;
+}
+
+.sidenav .mat-toolbar {
+  background-color: #131720;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  background-color: #131720;
+  top: 0;
+  z-index: 1;
+}
+.searchShape {
+  width: 250px;
+  height: 40px;
+  border-radius: 16px;
+  background-color: #151f30;
+  border: none;
+  padding: 0 60px 0 20px;
+  font-size: 14px;
+  outline: none;
+}
+.searchShape::placeholder {
+  color: $faint-white;
+}
+
+.colorBule {
+  color: #2f80ed !important;
+}
+
+.userImg {
+  width: 45px;
+  height: 45px;
+  list-style-type: none;
+  border-radius: 100%;
+}
+.userBox {
+  color: $primary-color;
+  background-color: $light-blue;
+  font-weight: 450;
+}
+
+.useroption {
+  margin-top: 3px;
+  position: fixed;
+  width: 150px;
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  background-color: $lighter-primary-color;
+  color: $faint-white;
+}
+a {
+  color: $faint-white;
+}
+h3 {
+  font-family: $titles-font;
+}
+a:hover {
+  transition: all 0.6s ease;
+  color: $light-blue !important;
+}
+h6:hover {
+  transition: all 0.6s ease;
+  color: $light-blue !important;
+}
+
+// مش هيتنفذ غير علي الي اكبر من 768
+@media (min-width: 768px) {
+  .sidenav {
+    display: none;
+  }
+}
+// مش هيتنفذ غير علي الي اصغر من 768
+@media (max-width: 767px) {
+  .sidenav-container {
+    width: 100%;
+    position: fixed;
+  }
+
+  .mainNav {
+    display: none !important;
+  }
+}
