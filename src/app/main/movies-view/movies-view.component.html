@@ -58,7 +58,7 @@
         
                             </div>
                             <!-- here we dont want to show more than 76 movies just to be a complete row -->
-                            <figure class="overflow-hidden img-wrapper" (click)="moviesDetailes(movie.id)" *ngIf="i < numberOfMovieShown">
+                            <figure class="overflow-hidden img-wrapper" *ngIf="i < numberOfMovieShown">
                                 <img class="img-fluid movie-img" [src]="imgPrefix + movie.poster_path" >
                             </figure>
 

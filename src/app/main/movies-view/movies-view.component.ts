@@ -191,9 +191,6 @@ export class MoviesViewComponent implements OnInit {
     this.movieViewSectionFromTop = this.movieViewSection.nativeElement.getBoundingClientRect().top;
   }
 
-  moviesDetailes(id) {
-    this.route.navigate(['/movies-details', id])
-  }
 
 
 }
