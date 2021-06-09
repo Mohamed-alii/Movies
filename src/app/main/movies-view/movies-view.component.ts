@@ -1,4 +1,5 @@
 import { Component, OnInit , ViewChild , ElementRef , HostListener} from '@angular/core';
+import { Router } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 
 @Component({
@@ -69,7 +70,7 @@ export class MoviesViewComponent implements OnInit {
   }
 
 
-  constructor(private _MoviesService:MoviesService) {
+  constructor(private _MoviesService: MoviesService, private route: Router) {
 
     // getting movies genres
     this._MoviesService.getMoviesGenres().subscribe( (data) => { 
@@ -189,5 +190,10 @@ export class MoviesViewComponent implements OnInit {
     this.catlogNavbarStartingTopSet = this.catlogNavbar.nativeElement.offsetTop;
     this.movieViewSectionFromTop = this.movieViewSection.nativeElement.getBoundingClientRect().top;
   }
+
+  moviesDetailes(id) {
+    this.route.navigate(['/movies-details', id])
+  }
+
 
 }
