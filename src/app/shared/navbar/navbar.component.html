@@ -1,10 +1,10 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-nav-list>
+    <mat-nav-list class="text-center">
    
-  <div class="    d-flex  p-5 
-            align-items-baseline ">
+  <div class="    d-flex  p-5  justify-content-center
+            ">
     <i class="fas fa-bars colorBule fa-2x mr-3" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
       *ngIf="isHandset$ | async"></i>
   
@@ -13,25 +13,25 @@
   </div>
 
 
-      <form class="text-white w-100 mt-2">
-        <input class="searchShape text-white w-100" placeholder="I'm looking for..." />
-        <i class="fas fa-search colorBule" style="margin-left: -30px"></i>
-      </form>
-
-      <div class="container d-flex flex-column">
-        <li class="navbar-nav p-1" (click)="drawer.close()">
-          <a class="nav-link text-white" routerLink="/" >Home</a>
-        </li>
-        <li class="navbar-nav p-1" (click)="drawer.close()">
-          <a class="nav-link text-white" routerLinkActive="active" routerLink="/catalog">categories
-          </a>
-        </li>
-
-        <li class="navbar-nav p-1">
-          <a class="nav-link text-white" href="#">Sign in
-            <i class="fas fa-sign-in-alt colorBule"></i>
-          </a>
-        </li>
+  
+  <div class="container d-flex flex-column">
+    <li class="navbar-nav p-1" (click)="drawer.close()">
+      <a class="nav-link text-white" routerLink="/" >Home</a>
+    </li>
+    <li class="navbar-nav p-1" (click)="drawer.close()">
+      <a class="nav-link text-white" routerLinkActive="active" routerLink="/catalog">categories
+      </a>
+    </li>
+    
+    <li class="navbar-nav p-1">
+      <a class="nav-link text-white" href="#">Sign in
+        <i class="fas fa-sign-in-alt colorBule"></i>
+      </a>
+    </li>
+    <form class="text-white w-100 mt-2">
+      <input class="searchShape text-white w-100" placeholder="I'm looking for..." />
+      <i class="fas fa-search colorBule" style="margin-left: -30px"></i>
+    </form>
       </div>
     </mat-nav-list>
   </mat-sidenav>
@@ -45,7 +45,7 @@
           py-3 py-md-4
         ">
   <div class="    d-flex
-          align-items-baseline ">
+         ">
     <i class="fas fa-bars colorBule fa-2x mr-3" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
     *ngIf="isHandset$ | async"></i>
 
@@ -63,7 +63,7 @@
         </li>
 
         <form class="text-white mainNav">
-          <input #searchInput class="searchShape text-white" placeholder="I'm looking for..." />
+          <input  (keydown.enter)="search($event)" #searchInput class="searchShape text-white" placeholder="I'm looking for..." />
           <i (click)="search($event)" class="fas fa-search colorBule" style="margin-left: -30px"></i>
         </form>
 
