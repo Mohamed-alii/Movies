@@ -1,9 +1,9 @@
-<div class="position-relative res">
+<div class="position-relative res  animate__animated animate__fadeIn">
     <div class="cover d-flex flex-column justify-content-end">
         <div class=" wide-container mt-5 ">
-            <h2 class="mb-2  mb-md-3">{{movie.title}}</h2>
+            <h3 class="mb-2  mb-md-3 ">{{movie.title}}</h3>
             <div class="mb-3 d-flex ">
-                <i class="far fa-star mr-1 color"></i>
+                <i class="far fa-star mr-1 color mt-1"></i>
                 <span class="mr-2 mr-md-3">{{movie.vote_average}}</span>
                 <li class=" mr-2 mr-md-3">{{movie.genres[0].name}}</li>
                 <li class="mr-2 mr-md-3">{{movie.release_date }}</li>
@@ -26,7 +26,7 @@
     <h2 class="colorBule my-4 pl-2">Top Cast</h2>
 </div>
 
-<div class="wide-container py-4">
+<div class="wide-container py-4  animate__animated animate__fadeIn">
     <div class=" row">
         <div class="col-6 mb-4 col-md-2" *ngFor="let actor of actors.cast |slice:0:6; let i=index">
             <div *ngIf="i <6" class=" d-flex flex-column align-items-center  ">
@@ -55,7 +55,7 @@
 
 
 
-<div class="wide-container row ">
+<div class="wide-container row   animate__animated animate__fadeIn">
     <div class="reveiwBox col-12  col-md-10 mb-3 " *ngFor="let  review of  reviews.results  |slice:0:2 let i=index">
         <div *ngIf="i < 2" class="container-fluid pb-4">
             <div class="userBox d-flex align-items-center   py-4 ">

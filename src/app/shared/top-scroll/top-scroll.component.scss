@@ -3,8 +3,8 @@
 
 .scroll-up
 {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
     background-color: $light-blue;
     position: fixed;
     bottom: 40px;
@@ -13,7 +13,8 @@
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s;
-    border: solid white 1px;
+    padding: 2em;
+  
 }
 
 .scroll-up:hover

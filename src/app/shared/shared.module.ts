@@ -10,7 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { FooterComponent } from './footer/footer.component';
 import { TopScrollComponent } from './top-scroll/top-scroll.component';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -22,7 +22,9 @@ import { TopScrollComponent } from './top-scroll/top-scroll.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    RouterModule
+
   ],
   exports:[NavbarComponent , SpinnerComponent , FooterComponent , TopScrollComponent]
 })

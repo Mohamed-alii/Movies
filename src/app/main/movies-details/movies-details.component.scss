@@ -37,7 +37,9 @@ li::before {
   z-index: 100;
   transition: all 0.6s ease;
 }
-
+h3{
+  font-size: 3.5rem;
+}
 h3 {
   color: $light-blue;
   font-family: $titles-font;
@@ -145,7 +147,6 @@ figure:hover img {
 @media (max-width: 767px) {
   .res {
     height: 65vh;
-    padding-top: 70px;
   }
   figure:hover .itemOverlay {
     i,
@@ -160,4 +161,7 @@ figure:hover img {
   .trailar {
     height: auto;
   }
+  h3{
+  font-size: 2.5rem;
+}
 }
