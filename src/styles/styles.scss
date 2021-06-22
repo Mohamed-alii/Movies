@@ -6,45 +6,48 @@ body {
   scroll-behavior: smooth;
 }
 body {
-
   background-color: $primary-color;
   margin: 0;
   font-family: $main-font;
 }
 
-.wide-container
-{
-  width: 85% ;
+body::-webkit-scrollbar {
+  width: 16px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: $lighter-primary-color;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: $light-blue;        /* color of the tracking area */
+}
+
+.wide-container {
+  width: 85%;
   margin: 0 auto;
 }
 
-h1
-{
-  color: $off-white ;
-}
-::-webkit-scrollbar-track {
-background-color: $lighter-primary-color;
-}
-::-webkit-scrollbar-corner{
-  background-color: $light-blue;
+h1 {
+  color: $off-white;
 }
 
 
-a
-{
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
     color: inherit;
     text-decoration: none;
-
-    &:hover
-    {
-      color: inherit;
-      text-decoration: none;
-    }
+  }
 }
 
 @media (max-width: 767px) {
-  body{
-padding-top: 80px;
+  body {
+    padding-top: 80px;
   }
-  html { font-size: 14px; }
+  html {
+    font-size: 14px;
+  }
 }

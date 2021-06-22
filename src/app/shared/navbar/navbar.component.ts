@@ -1,4 +1,4 @@
-import { Component, HostListener , ElementRef , ViewChild} from '@angular/core';
+import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  navScroll = false;
   userOptionClicked = false;
-  cateOptionClicked = false;
+  isLogin = false;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -19,36 +21,43 @@ export class NavbarComponent {
     );
 
   @ViewChild('searchInput') searchInput: ElementRef;
+  @ViewChild('searchInputResponsive') searchInputResponsive: ElementRef;
 
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
 
-  constructor(private breakpointObserver: BreakpointObserver , private router:Router) { }
-
-  search(eventInfo)
-  {
+  search(eventInfo) {
     let userSearch = this.searchInput.nativeElement.value;
-
-    this.router.navigateByUrl( '/' , {skipLocationChange: true } ).then( () => {
-      this.router.navigate([ `/search/${userSearch}` ])
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([`/search/${userSearch}`])
     });
-
+    return false;
   }
+
+  searchResponsive(eventInfo) {
+    let userSearch = this.searchInputResponsive.nativeElement.value;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([`/search/${userSearch}`])
+    });
+    return false;
+  }
+
+
 
   showUserOption() {
     this.userOptionClicked = !this.userOptionClicked
   }
-  showCateOption() {
-    this.cateOptionClicked = !this.cateOptionClicked
-  }
-
-
 
   @HostListener("window:scroll")
   hide() {
     if (window.scrollY > 10) {
       this.userOptionClicked = false
-      this.cateOptionClicked=false
-}
+      this.navScroll = true
+    } else {
+      this.navScroll = false
+    }
   }
+
+
 
 
 

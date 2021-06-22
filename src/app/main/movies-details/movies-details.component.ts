@@ -76,6 +76,10 @@ export class MoviesDetailsComponent {
         dots: true,
         touchDrag: true,
       },
+      400: {
+        items: 3,
+        touchDrag: true,
+      },
       600: {
         items: 3,
         touchDrag: true,
