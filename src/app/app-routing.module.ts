@@ -6,6 +6,7 @@ import { MoviesViewComponent } from './main/movies-view/movies-view.component';
 import { CatalogComponent } from './main/catalog/catalog.component';
 import { CatalogListComponent } from './main/catalog-list/catalog-list.component';
 import { SearchComponent } from './main/search/search.component';
+import { ActorDetailsComponent } from './main/actor-details/actor-details.component';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'catalog' , component: CatalogComponent },
   { path: 'catalog/:listName' , component: CatalogListComponent },
   { path: 'movies-details/:id', component: MoviesDetailsComponent },
+  { path: 'actor-details/:id', component: ActorDetailsComponent },
 ];
 
 @NgModule({

@@ -18,7 +18,7 @@ export class MovieHeaderComponent {
         console.log(data)
         this.popularMovies = data
       }) 
-    },1000)
+    },800)
   }
 
   customOptions: OwlOptions = {

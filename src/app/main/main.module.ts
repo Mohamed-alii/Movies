@@ -9,6 +9,7 @@ import { MoviesDetailsComponent } from './movies-details/movies-details.componen
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SearchComponent } from './search/search.component';
+import { ActorDetailsComponent } from './actor-details/actor-details.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SearchComponent } from './search/search.component';
     MoviesDetailsComponent,
     CatalogListComponent,
     SearchComponent,
+    ActorDetailsComponent,
   ],
   imports: [
     CommonModule,

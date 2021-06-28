@@ -21,6 +21,7 @@ export class MoviesDetailsComponent {
   reviews;
   read = false;
   actors;
+  isLoading = true;
   constructor(
     private route: ActivatedRoute,
     private http: MoviesService,
@@ -32,7 +33,7 @@ export class MoviesDetailsComponent {
       top: 0,
       behavior: 'smooth',
     });
-  
+
     this.movieId = this.route.snapshot.params['id'];
 
     this.http.getMovieDetailes(this.movieId).subscribe((data) => {
@@ -42,9 +43,12 @@ export class MoviesDetailsComponent {
       }
     });
 
-    this.http
-      .getSimilarMovies(this.movieId)
-      .subscribe((data) => (this.similar = data));
+    this.http.getSimilarMovies(this.movieId).subscribe((data) => {
+      if (data) {
+        this.similar = data
+      }
+    })
+
     this.http.getMovieTrailer(this.movieId).subscribe((data) => {
       this.trailer = data;
       this.trailerUrl = `https://www.youtube.com/embed/${this.trailer.results[0].key}`;
@@ -52,13 +56,18 @@ export class MoviesDetailsComponent {
     });
 
     this.http.getMovieReveiw(this.movieId).subscribe((data) => {
-      console.log(data);
-      this.reviews = data;
+      if (data) {
+        this.reviews = data;
+      }
     });
 
     this.http
       .getMovieActors(this.movieId)
-      .subscribe((data) => (this.actors = data));
+      .subscribe((data) => {
+        if (data) {
+          this.actors = data
+        }
+      });
   }
 
   customOptions: OwlOptions = {
@@ -106,4 +115,20 @@ export class MoviesDetailsComponent {
     document.getElementById(id).style.height = prop;
     text.target.innerText = this.read === true ? 'Read Less' : 'Read More ';
   }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    },800)
+  }
+
+  actorDetails(id) {
+    this.router.navigate(['/actor-details', id])
+  }
+
+
+
+
+
+
 }
